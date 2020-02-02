@@ -1,0 +1,59 @@
+.planet-list-wrapper {
+  padding: 20px 30px;
+}
+
+.planet-list-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.table-container {
+  position: relative;
+  overflow: hidden;
+
+  .mat-table {
+    width: 100%;
+
+    .mat-row {
+      cursor: pointer;
+      transition: background .15s ease-in;
+
+      &:hover {
+        background: rgba(0, 0, 0, .05);
+
+        .material-icons {
+          opacity: .75;
+        }
+      }
+    }
+
+    .mat-sell, .mat-header-cell {
+      width: 25%;
+    }
+
+    .mat-column-population .population-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.material-icons {
+  color: #3f51b5;
+  opacity: 0;
+  font-size: 18px;
+  transition: opacity .15s ease-in;
+}
+
+.loader {
+  padding-top: 55px;
+}
+
+.perfect-scrollbar {
+  max-height: 538px;
+}

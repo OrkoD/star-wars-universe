@@ -1,0 +1,29 @@
+<div class="planet-item-wrapper">
+  <button routerLink="/planets" mat-raised-button color="primary">
+    <i class="material-icons">arrow_back_ios</i>
+    Go Back
+  </button>
+
+  <mat-card class="planet-detailes-card">
+    <ng-container *ngIf="(planet$ | async) as planet; else loader">
+      <mat-card-header>
+        <mat-card-title>{{ planet.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="img-wrapper">
+          <img mat-card-image [src]="imgUrl" alt="Random planet photo">
+        </div>
+        <mat-list role="list" class="detailes-list">
+          <mat-list-item *ngFor="let item of list" role="listitem">{{ item.name }} - {{ planet[item.property] }}</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </ng-container>
+  </mat-card>
+
+  <!-- Loader -->
+  <ng-template class="loader" #loader>
+    <div class="loader">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

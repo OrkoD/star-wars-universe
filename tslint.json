@@ -18,7 +18,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "star-wars",
       "kebab-case"
     ],
     "import-blacklist": [
