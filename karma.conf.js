@@ -15,6 +15,15 @@ module.exports = function (config) {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    files: [
+      { pattern: './src/test.ts', watched: false }
+    ],
+    preprocessors: {
+      './src/test.ts': ['@angular/cli']
+    },
+    mime: {
+      'text/x-typescript': ['ts', 'tsx']
+    },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/star-wars-universe'),
       reports: ['html', 'lcovonly', 'text-summary'],
@@ -25,8 +34,8 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['PhantomJS'], /* remove chrome and replace it with PhantomJS */
+    singleRun: true, /* make it true to run test suits only one time */
     restartOnFileChange: true
   });
 };
