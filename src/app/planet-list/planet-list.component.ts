@@ -2,15 +2,14 @@ import { Component, OnInit, ViewChild, OnDestroy, ChangeDetectionStrategy } from
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { of, Observable, BehaviorSubject, Subject } from 'rxjs';
-import { switchMap, scan, tap, map, pluck, distinctUntilChanged, withLatestFrom, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 // Services
 import { PlanetListService } from './services/planet-list.service';
 
 // Models
 import { Planet, Pagination } from './models/planets.models';
-import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'star-wars-planet-list',

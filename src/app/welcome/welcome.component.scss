@@ -47,11 +47,6 @@
  * by Noah Blon <https://codepen.io/noahblon/>
  */
 
-.wall {
-  background: url(/assets/misc/hyperspace-background.jpg);
-  background-size: cover;
-}
-
 .scene {
   width: 1px;
   height: 1px;
@@ -85,6 +80,8 @@
   opacity: 0;
   animation: fade 12s infinite linear;
   animation-delay: 0;
+  background: url(/assets/misc/hyperspace-background.jpg);
+  background-size: cover;
 }
 
 .wrap:nth-child(2) .wall {
