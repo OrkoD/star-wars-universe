@@ -12,7 +12,9 @@ const mockData = '../../../assets/mock-data/mock-data.json';
   providedIn: 'root'
 })
 export class PlanetListService {
-  private baseUrl = 'https://swapi.co/api/planets';
+  public baseUrl = 'https://swapi.co/api/planets';
+  public isCashedData = false;
+  public counter = 0;
   private cashedPlanets$: BehaviorSubject<Planet[]> = new BehaviorSubject<Planet[]>([]);
 
   private paginationSubject: BehaviorSubject<Pagination> = new BehaviorSubject<Pagination>(DefaultPagination);
@@ -67,14 +69,14 @@ export class PlanetListService {
     );
   }
 
-  private fetchPlanetsByPage$(page: number): Observable<Response> {
+  public fetchPlanetsByPage$(page: number): Observable<Response> {
     const query = `?page=${page}`;
     const url = `${this.baseUrl}/${query}`;
 
     return this.http.get<Response>(url);
   }
 
-  private fetchPlanetById$(id: string): Observable<Planet> {
+  public fetchPlanetById$(id: string | number): Observable<Planet> {
     const url = `${this.baseUrl}/${id}`;
 
     return this.http.get<Planet>(url).pipe(
@@ -89,7 +91,15 @@ export class PlanetListService {
     );
   }
 
-  private getId(url: string): any { // leave as any because of compiler complaining
+  public getId(url: string): any { // leave as any because of compiler complaining
     return url.split('/').filter(str => str.length).pop();
+  }
+
+  public toggleCashedData() {
+    this.isCashedData = !this.isCashedData;
+  }
+
+  public upCounter() {
+    this.counter++;
   }
 }
