@@ -11,33 +11,33 @@
       </div>
 
       <perfect-scrollbar class="perfect-scrollbar">
-        <table mat-table [dataSource]="dataSource" matSort>
+        <table mat-table [dataSource]="dataSource" matSort aria-describedby="planets table">
 
           <!-- Name Column -->
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header id="name">Name</th>
             <td mat-cell *matCellDef="let element">{{ element.name }}</td>
           </ng-container>
 
           <!-- Diameter Column -->
           <ng-container matColumnDef="diameter">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Diameter</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header id="diameter">Diameter</th>
             <td mat-cell *matCellDef="let element">{{ element.diameter }}</td>
           </ng-container>
 
           <!-- Climate Column -->
           <ng-container matColumnDef="climate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Climate</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header id="climate">Climate</th>
             <td mat-cell *matCellDef="let element">{{ element.climate }}</td>
           </ng-container>
 
           <!-- Population Column -->
           <ng-container matColumnDef="population">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Population</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header id="population">Population</th>
             <td mat-cell *matCellDef="let element">
               <div class="population-wrapper">
                 {{ element.population }}
-                <i class="material-icons">open_in_new</i>
+                <em class="material-icons">open_in_new</em>
               </div>
             </td>
           </ng-container>
